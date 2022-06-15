@@ -30,7 +30,8 @@
 
 						<ui:SymbolIcon Symbol="Checkmark"
 									   Margin="0 0 16 0"
-									   Name="CheckGlyph" />
+									   Name="CheckGlyph" 
+									   FlowDirection="LeftToRight"/>
 
 						<Viewbox Name="IconRoot"
 								 Grid.Column="1"

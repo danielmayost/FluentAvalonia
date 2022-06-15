@@ -58,7 +58,7 @@
 
                     <Grid ColumnDefinitions="Auto,*">
 
-                        <Grid Grid.Column="0" VerticalAlignment="Top" Height="{StaticResource CheckBoxHeight}">
+                        <Grid Grid.Column="0" VerticalAlignment="Top" Height="{StaticResource CheckBoxHeight}" FlowDirection="LeftToRight">
                             
                             <Border Name="NormalRectangle"
                                        UseLayoutRounding="False"
@@ -119,7 +119,7 @@
 
     <!-- Unchecked pressed -->
     <Style Selector="CheckBox:pressed /template/ ContentPresenter#ContentPresenter">
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource CheckBoxForegroundUncheckedPressed}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource CheckBoxForegroundUncheckedPressed}" />
     </Style>
     <Style Selector="CheckBox:pressed /template/ Border#Root">
         <Setter Property="Background" Value="{DynamicResource CheckBoxBackgroundUncheckedPressed}" />

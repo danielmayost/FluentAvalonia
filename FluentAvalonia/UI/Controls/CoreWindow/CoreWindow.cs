@@ -11,7 +11,6 @@ using Avalonia.Styling;
 using FluentAvalonia.Core.ApplicationModel;
 using FluentAvalonia.Styling;
 using FluentAvalonia.UI.Controls.Primitives;
-using System;
 using System.Runtime.InteropServices;
 
 namespace FluentAvalonia.UI.Controls

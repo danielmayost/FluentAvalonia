@@ -34,9 +34,10 @@ namespace FluentAvalonia.Styling
             get => _requestedTheme;
             set
             {
-                _requestedTheme = value;
                 if (_hasLoaded)
                     Refresh(value);
+
+                _requestedTheme = value;
             }
         }
 
