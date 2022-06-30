@@ -118,8 +118,8 @@ namespace FluentAvalonia.UI.Controls
 					}
 					break;
 			}
-
-			return base.WndProc(hWnd, msg, wParam, lParam);
+return base.WndProc(hWnd, msg, wParam, lParam);
+			
 		}
 
         public override void Show(bool activate, bool isDialog)

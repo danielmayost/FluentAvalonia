@@ -72,8 +72,8 @@ namespace FluentAvalonia.UI.Controls
                 _addButtonColumn = _tabContainerGrid.ColumnDefinitions[2];
                 _rightContentColumn = _tabContainerGrid.ColumnDefinitions[3];
 
-                _tabContainerGrid.PointerEnter += OnTabStripPointerEnter;
-                _tabContainerGrid.PointerLeave += OnTabStripPointerLeave;
+                _tabContainerGrid.PointerEntered += OnTabStripPointerEntered;
+                _tabContainerGrid.PointerReleased += OnTabStripPointerReleased;
 
                 // Adding this to mimic XYFocusKeyboardNavigation in the tabstrip
                 _tabContainerGrid.KeyDown += OnTabContainerGridKeyDown;
@@ -389,10 +389,10 @@ namespace FluentAvalonia.UI.Controls
             UpdateTabBottomBorderLineVisualStates();
         }
 
-        private void OnTabStripPointerLeave(object sender, PointerEventArgs e)
+        private void OnTabStripPointerReleased(object sender, PointerEventArgs e)
         {
             _pointerInTabstrip = false;
-            if (_updateTabWidthOnPointerLeave)
+            if (_updateTabWidthOnPointerReleased)
             {
                 try
                 {
@@ -400,12 +400,12 @@ namespace FluentAvalonia.UI.Controls
                 }
                 finally
                 {
-                    _updateTabWidthOnPointerLeave = false;
+                    _updateTabWidthOnPointerReleased = false;
                 }
             }
         }
 
-        private void OnTabStripPointerEnter(object sender, PointerEventArgs e)
+        private void OnTabStripPointerEntered(object sender, PointerEventArgs e)
         {
             _pointerInTabstrip = true;
         }
@@ -495,7 +495,7 @@ namespace FluentAvalonia.UI.Controls
                 return;
 
             _lastItemsPresenterSize = newValue.Size;
-            if (!_updateTabWidthOnPointerLeave)
+            if (!_updateTabWidthOnPointerReleased)
             {
                 // Presenter size didn't change because of item being removed, so update manually
                 UpdateScrollViewerDecreaseAndIncreaseButtonsViewState();
@@ -541,7 +541,7 @@ namespace FluentAvalonia.UI.Controls
 
                 if (incc.Action == NotifyCollectionChangedAction.Remove)
                 {
-                    _updateTabWidthOnPointerLeave = true;
+                    _updateTabWidthOnPointerReleased = true;
                     if (numItems > 0)
                     {
                         // SelectedIndex might also already be -1
@@ -1062,8 +1062,8 @@ namespace FluentAvalonia.UI.Controls
         {
             if (_tabContainerGrid != null)
             {
-                _tabContainerGrid.PointerEnter -= OnTabStripPointerEnter;
-                _tabContainerGrid.PointerLeave -= OnTabStripPointerLeave;
+                _tabContainerGrid.PointerEntered -= OnTabStripPointerEntered;
+                _tabContainerGrid.PointerReleased -= OnTabStripPointerReleased;
             }
 
             if (_listView != null)
@@ -1125,7 +1125,7 @@ namespace FluentAvalonia.UI.Controls
 
         private TabViewCommand _keyboardAcceleratorHandler;
 
-        private bool _updateTabWidthOnPointerLeave = false;
+        private bool _updateTabWidthOnPointerReleased = false;
         private bool _pointerInTabstrip = false;
 
         private ColumnDefinition _leftContentColumn;

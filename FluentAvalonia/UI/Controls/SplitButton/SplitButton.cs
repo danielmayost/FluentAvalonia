@@ -31,8 +31,8 @@ namespace FluentAvalonia.UI.Controls
 					_primaryButton.GetPropertyChangedObservable(Button.IsPointerOverProperty).Subscribe(OnVisualPropertyChanged));
 
 				// Register for pointer events so we can keep track of last used pointer type
-				_primaryButton.PointerEnter += OnPointerEvent;
-				_primaryButton.PointerLeave += OnPointerEvent;
+				_primaryButton.PointerEntered += OnPointerEvent;
+				_primaryButton.PointerReleased += OnPointerEvent;
 				_primaryButton.PointerPressed += OnPointerEvent;
 				_primaryButton.PointerReleased += OnPointerEvent;
 				//Dont have PointerCanceled
@@ -47,8 +47,8 @@ namespace FluentAvalonia.UI.Controls
 					_secondaryButton.GetPropertyChangedObservable(Button.IsPressedProperty).Subscribe(OnVisualPropertyChanged),
 					_secondaryButton.GetPropertyChangedObservable(Button.IsPointerOverProperty).Subscribe(OnVisualPropertyChanged));
 
-				_secondaryButton.PointerEnter += OnPointerEvent;
-				_secondaryButton.PointerLeave += OnPointerEvent;
+				_secondaryButton.PointerEntered += OnPointerEvent;
+				_secondaryButton.PointerReleased += OnPointerEvent;
 				_secondaryButton.PointerPressed += OnPointerEvent;
 				_secondaryButton.PointerReleased += OnPointerEvent;
 				//Dont have PointerCanceled
@@ -144,16 +144,16 @@ namespace FluentAvalonia.UI.Controls
 			_primaryButton.Click -= OnClickPrimary;
 			_secondaryButton.Click -= OnClickSecondary;
 
-			_primaryButton.PointerEnter -= OnPointerEvent;
-			_primaryButton.PointerLeave -= OnPointerEvent;
+			_primaryButton.PointerEntered -= OnPointerEvent;
+			_primaryButton.PointerReleased -= OnPointerEvent;
 			_primaryButton.PointerPressed -= OnPointerEvent;
 			_primaryButton.PointerReleased -= OnPointerEvent;
 			_primaryButton.PointerCaptureLost -= OnPointerLostEvent;
 			_primaryDisposable.Dispose();
 			_primaryDisposable = null;
 
-			_secondaryButton.PointerEnter -= OnPointerEvent;
-			_secondaryButton.PointerLeave -= OnPointerEvent;
+			_secondaryButton.PointerEntered -= OnPointerEvent;
+			_secondaryButton.PointerReleased -= OnPointerEvent;
 			_secondaryButton.PointerPressed -= OnPointerEvent;
 			_secondaryButton.PointerReleased -= OnPointerEvent;
 			_secondaryButton.PointerCaptureLost -= OnPointerLostEvent;

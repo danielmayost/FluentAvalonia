@@ -208,9 +208,9 @@ namespace FluentAvalonia.UI.Controls
             }
         }
 
-        protected override void OnPointerEnter(PointerEventArgs e)
+        protected override void OnPointerEntered(PointerEventArgs e)
         {
-            base.OnPointerEnter(e);
+            base.OnPointerEntered(e);
 
             _isPointerOver = true;
 
@@ -223,10 +223,9 @@ namespace FluentAvalonia.UI.Controls
             HideLeftAdjacentTabSeparator();
         }
 
-        protected override void OnPointerLeave(PointerEventArgs e)
+        //OnPointerExited wrong
+        protected override void OnPointerExited(PointerEventArgs e)
         {
-            base.OnPointerLeave(e);
-
             _isPointerOver = false;
             _isMiddlePointerButtonPressed = false;
 
