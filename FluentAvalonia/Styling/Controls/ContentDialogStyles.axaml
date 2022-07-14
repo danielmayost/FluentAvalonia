@@ -74,9 +74,9 @@
                                                 <ContentPresenter Name="Content" 
                                                                   ContentTemplate="{TemplateBinding ContentTemplate}"
                                                                   Content="{TemplateBinding Content}"
-                                                                  TextBlock.FontSize="{StaticResource ControlContentThemeFontSize}"
-                                                                  TextBlock.FontFamily="{StaticResource ContentControlThemeFontFamily}"
-                                                                  TextBlock.Foreground="{TemplateBinding Foreground}"
+                                                                  TextElement.FontSize="{StaticResource ControlContentThemeFontSize}"
+                                                                  TextElement.FontFamily="{StaticResource ContentControlThemeFontFamily}"
+                                                                  TextElement.Foreground="{TemplateBinding Foreground}"
                                                                   Grid.Row="1"/>
                                             </Grid>
                                         </Border>
